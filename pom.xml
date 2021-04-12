@@ -23,8 +23,8 @@
 	<description>Pom parent</description>
 
 	<modules>
-		<module>spring-boot-sample-engine</module>
 		<module>spring-boot-sample-model</module>
+		<module>spring-boot-sample-engine</module>
 	</modules>
 
 	<properties>
