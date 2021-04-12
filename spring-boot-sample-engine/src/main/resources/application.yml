@@ -1,0 +1,26 @@
+spring:
+  application: # application name
+    name: Real-Estate-Engine
+  jpa: 
+    properties: 
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      naming:
+        physical-strategy: com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+  datasource: # Database info
+    url: jdbc:postgresql://localhost:5432/real_estate_engine
+    username: real_estate_engine
+    password: REAL_ESTATE_ENGINE
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always 
+    initialize: true
+    continue-on-error: true
+  liquibase: # Liquibase
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
+# Security part - Managing Jwt Token 
+security:
+  jwtSecret: ThisIsNotASecureSecret
+  jwtExpirationMs: 300000

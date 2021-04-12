@@ -1,0 +1,11 @@
+url: jdbc:postgresql://localhost:5432/real_estate_engine
+username: real_estate_engine
+password: REAL_ESTATE_ENGINE
+driver: org.h2.Driver
+change-log: classpath:/db/changelog/db.changelog-master.xml
+changeLogFile: classpath:liquibase-changeLog.xml
+outputChangeLogFile: src/main/resources/db/changelog/liquibase-outputChangeLog.xml
+referenceUrl: hibernate:spring:com.ad.realestateengine.entities?dialect=org.hibernate.dialect.PostgreSQLDialect&hibernate.physical_naming_strategy=com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy&hibernate.implicit_naming_strategy=org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+#referenceUrl:hibernate:ejb3:persistenceUnit?hibernate.ejb.naming_strategy=org.hibernate.cfg.ImprovedNamingStrategy
+#&hibernate.physical_naming_strategy=com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+diffChangeLogFile: src/main/resources/db/changelog/db.changelog.xml

@@ -1,0 +1,7 @@
+spring:
+ datasource:
+  password: REAL_ESTATE_ENGINE
+ security:
+  user:
+   name: user
+   password: test

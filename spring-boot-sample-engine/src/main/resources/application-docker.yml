@@ -1,0 +1,8 @@
+spring:
+ datasource:
+  password: REAL_ESTATE_ENGINE
+  url: jdbc:postgresql://host.docker.internal:5432/real_estate_engine
+ security:
+  user:
+   name: user
+   password: test

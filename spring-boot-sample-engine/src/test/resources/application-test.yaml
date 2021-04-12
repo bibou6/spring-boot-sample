@@ -1,0 +1,14 @@
+spring:
+  liquibase.enabled: false
+  datasource:
+    url: jdbc:h2:mem:test
+    username: real_estate_engine
+    password: REAL_ESTATE_ENGINE
+    driverClassName: org.h2.Driver
+    initialization-mode: always 
+    initialize: true
+    continue-on-error: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect

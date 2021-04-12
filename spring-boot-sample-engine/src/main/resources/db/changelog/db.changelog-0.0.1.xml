@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Adrien (generated)" id="1617626900149-1">
+        <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="Adrien (generated)" id="1617626900149-2">
+        <createTable tableName="ad_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ad_userPK"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="encoded_password" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Adrien (generated)" id="1617626900149-3">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="roles" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Adrien (generated)" id="1617626900149-4">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_roles" constraintName="FKguohtiw4j5r0e2bmag2wt01w7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="ad_user" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
