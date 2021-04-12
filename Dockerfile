@@ -4,7 +4,9 @@ MAINTAINER "Adrien Durot"
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY real-estate-engine/target/real-estate-engine-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+ENV SERVICE_NAME spring-boot-sample-engine
+
+COPY ${SERVICE_NAME}/target/${SERVICE_NAME}-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 CMD ["catalina.sh","run"]
 
