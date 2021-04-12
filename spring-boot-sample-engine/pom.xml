@@ -65,7 +65,7 @@
 		<!-- Model -->
 		<dependency>
 			<groupId>com.ad</groupId>
-			<artifactId>real-estate-model</artifactId>
+			<artifactId>spring-boot-sample-model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<!-- End -->
