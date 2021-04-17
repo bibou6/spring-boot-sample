@@ -38,7 +38,7 @@
 			**/com/wkrzywiec/medium/noticeboard/entity/**,
 			**/com/wkrzywiec/medium/noticeboard/Application.java
 		</code.coverage.exclusions>
-		<sonar.projectKey>bibou6_spring-boot-sample</sonar.projectKey>
+		<sonar.projectKey>bibou6_spring-boot-sample-${project.groupId}:${project.artifactId}</sonar.projectKey>
 		<sonar.organization>bibou6</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
