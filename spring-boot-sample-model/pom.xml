@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.ad</groupId>
-		<artifactId>spring-boot-sample-parent</artifactId>
+		<groupId>bibou6</groupId>
+		<artifactId>spring-boot-sample</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
@@ -68,5 +68,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>${project.artifactId}</name>
+			<url>https://maven.pkg.github.com/bibou6/${project.parent.artifactId}</url>
+		</repository>
+	</distributionManagement>
 
 </project>
