@@ -16,7 +16,7 @@
 
 	<groupId>bibou6</groupId>
 	<artifactId>spring-boot-sample</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 
@@ -34,11 +34,12 @@
 		<java.version>1.8</java.version>
 		<swagger.io.version>1.5.22</swagger.io.version>
 		<code.coverage.exclusions>
-			**/com/wkrzywiec/medium/noticeboard/controller/dto/**,
-			**/com/wkrzywiec/medium/noticeboard/entity/**,
-			**/com/wkrzywiec/medium/noticeboard/Application.java
+			**/com/ad/realestateengine/RealEstateEngineApplication.java,
+			**/com/ad/realestateengine/config/**/*,
+			**/com/ad/realestateengine/schedulers/**/*
 		</code.coverage.exclusions>
 		<sonar.projectKey>bibou6_spring-boot-sample</sonar.projectKey>
+		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
 		<sonar.organization>bibou6</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
@@ -84,6 +85,7 @@
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.8.0.2131</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -142,7 +144,7 @@
 										<limit implementation="org.jacoco.report.check.Limit">
 											<counter>COMPLEXITY</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.60</minimum>
+											<minimum>0.10</minimum>
 										</limit>
 									</limits>
 								</rule>
@@ -192,37 +194,6 @@
 								<configuration>
 									<skipTests>false</skipTests>
 								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>sonar</id>
-			<properties>
-				<sonar.sources>.</sonar.sources>
-				<sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
-				<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
-				<sonar.projectKey>${sonar.projectKey}</sonar.projectKey>
-				<sonar.organization>${sonar.organization}</sonar.organization>
-				<sonar.host.url>${sonar.host.url}</sonar.host.url>
-			</properties>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.sonarsource.scanner.maven</groupId>
-						<artifactId>sonar-maven-plugin</artifactId>
-						<version>3.7.0.1746</version>
-						<executions>
-							<execution>
-								<phase>verify</phase>
-								<goals>
-									<goal>sonar</goal>
-								</goals>
 							</execution>
 						</executions>
 					</plugin>

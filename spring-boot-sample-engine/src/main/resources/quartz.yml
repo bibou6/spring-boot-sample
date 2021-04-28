@@ -1,0 +1,12 @@
+org:
+  quartz:
+    jobStore: 
+      class: org.quartz.impl.jdbcjobstore.JobStoreTX
+      driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+      dataSource: quartzDataSource
+    dataSource: 
+      quartzDataSource:
+        URL: jdbc:postgresql://localhost:5432/real_estate_engine
+        driver: org.postgresql.Driver
+        user: real_estate_engine
+        password: REAL_ESTATE_ENGINE
