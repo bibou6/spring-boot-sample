@@ -12,9 +12,18 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 public class ErrorResponse {
 	
+	public ErrorResponse(Integer httpCode, ErrorCode errorCode) {
+		this.httpCode = httpCode;
+		this.code = errorCode.getCode();
+		this.message = errorCode.getMessage();
+		this.key = errorCode.name();
+	}
+	
 	Integer httpCode;
 	
 	String code;
+	
+	String key;
 	
 	String message;
 

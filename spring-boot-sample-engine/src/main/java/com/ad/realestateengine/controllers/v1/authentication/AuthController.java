@@ -100,13 +100,13 @@ public class AuthController extends V1Controller{
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
-					.body(new ErrorResponse(HttpStatus.CONFLICT.value(),ErrorCode.USER_EXIST_BY_USERNAME.getCode(),ErrorCode.USER_EXIST_BY_USERNAME.getMessage()));
+					.body(new ErrorResponse(HttpStatus.CONFLICT.value(),ErrorCode.USER_EXIST_BY_USERNAME));
 		}
 
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
 			return ResponseEntity
 					.badRequest()
-					.body(new ErrorResponse(HttpStatus.CONFLICT.value(),ErrorCode.USER_EXIST_BY_EMAIL.getCode(),ErrorCode.USER_EXIST_BY_EMAIL.getMessage()));
+					.body(new ErrorResponse(HttpStatus.CONFLICT.value(),ErrorCode.USER_EXIST_BY_EMAIL));
 		}
 
 		// Create new user's account
