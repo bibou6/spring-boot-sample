@@ -26,62 +26,47 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SwaggerConfiguration {
-	
 
 	@Bean
 	public Docket commonApi() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("Common")
-				.select()
+		return new Docket(DocumentationType.SWAGGER_2).groupName("Common").select()
 				.apis(RequestHandlerSelectors.basePackage("com.ad.realestateengine.controllers.v1.common"))
-				.paths(PathSelectors.any())
-				.build()
-				.apiInfo(metadata())
-				.securityContexts(Arrays.asList(securityContext()))
-			    .securitySchemes(Arrays.asList(apiKey()));
+				.paths(PathSelectors.any()).build().apiInfo(metadata())
+				.securityContexts(Arrays.asList(securityContext())).securitySchemes(Arrays.asList(apiKey()));
 	}
-	
-	
+
 	@Bean
 	public Docket AuthenticationApi() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("Authentication")
-				.select()
+		return new Docket(DocumentationType.SWAGGER_2).groupName("Authentication").select()
 				.apis(RequestHandlerSelectors.basePackage("com.ad.realestateengine.controllers.v1.authentication"))
-				.paths(PathSelectors.any())
-				.build()
-				.apiInfo(metadata());
+				.paths(PathSelectors.any()).build().apiInfo(metadata());
 	}
-	
+
 	@Bean
 	public Docket SupervisionApi() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("Supervision")
-				.select()
+		return new Docket(DocumentationType.SWAGGER_2).groupName("Supervision").select()
 				.apis(RequestHandlerSelectors.basePackage("com.ad.realestateengine.controllers.v1.supervision"))
-				.paths(PathSelectors.any())
-				.build()
-				.apiInfo(metadata());
+				.paths(PathSelectors.any()).build().apiInfo(metadata())
+				.securityContexts(Arrays.asList(securityContext())).securitySchemes(Arrays.asList(apiKey()));
 	}
-	
-	private ApiInfo metadata() {
-		return new ApiInfoBuilder().version("0.0.1-SNAPSHOT").title("Real Estate APIs")
-				.description("Services that exposes APIs to access real estate data")
-				.build();
-	}
-	
-	private ApiKey apiKey() { 
-	    return new ApiKey( "Authorization:","JWT", "header"); 
-	}
-	
-	private SecurityContext securityContext() { 
-	    return SecurityContext.builder().securityReferences(defaultAuth()).build(); 
-	} 
 
-	private List<SecurityReference> defaultAuth() { 
-	    AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything"); 
-	    AuthorizationScope[] authorizationScopes = new AuthorizationScope[1]; 
-	    authorizationScopes[0] = authorizationScope; 
-	    return Arrays.asList(new SecurityReference("JWT", authorizationScopes)); 
+	private ApiInfo metadata() {
+		return new ApiInfoBuilder().version("0.0.1-SNAPSHOT").title("Spring Boot Sample APIs")
+				.description("Services that exposes APIs").build();
+	}
+
+	private ApiKey apiKey() {
+		return new ApiKey("JWT", "Authorization", "header");
+	}
+
+	private SecurityContext securityContext() {
+		return SecurityContext.builder().securityReferences(defaultAuth()).build();
+	}
+
+	private List<SecurityReference> defaultAuth() {
+		AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+		AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+		authorizationScopes[0] = authorizationScope;
+		return Arrays.asList(new SecurityReference("JWT", authorizationScopes));
 	}
 }

@@ -119,6 +119,7 @@ public class AuthController extends V1Controller{
 
 		roles.add(SecurityRoles.ACCESS_MY_CITY);
 		roles.add(SecurityRoles.ACCESS_MY_CONTACT);
+		roles.add(SecurityRoles.ACCESS_MY_USER);
 		
 		user.setRoles(roles);
 		userRepository.save(user);

@@ -89,7 +89,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			
 			//USER
 			.antMatchers("/v1/admin/user/*").hasRole(SecurityRoles.ACCESS_ALL_USER.name())
-			.antMatchers("/v1/user/*").hasRole(SecurityRoles.ACCESS_ALL_USER.name())
+			.antMatchers("/v1/user/*").hasRole(SecurityRoles.ACCESS_MY_USER.name())
+			
+			//Supervision
+			.antMatchers("/v1/supervision/*").hasRole(SecurityRoles.ACCESS_SUPERVISION.name())
 			.anyRequest().authenticated()
 			.and()
 			.exceptionHandling().accessDeniedHandler(accessDeniedHandler()).authenticationEntryPoint(authenticationEntryPoint());
