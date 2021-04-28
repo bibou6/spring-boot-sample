@@ -53,6 +53,17 @@ public class SwaggerConfiguration {
 				.apiInfo(metadata());
 	}
 	
+	@Bean
+	public Docket SupervisionApi() {
+		return new Docket(DocumentationType.SWAGGER_2)
+				.groupName("Supervision")
+				.select()
+				.apis(RequestHandlerSelectors.basePackage("com.ad.realestateengine.controllers.v1.supervision"))
+				.paths(PathSelectors.any())
+				.build()
+				.apiInfo(metadata());
+	}
+	
 	private ApiInfo metadata() {
 		return new ApiInfoBuilder().version("0.0.1-SNAPSHOT").title("Real Estate APIs")
 				.description("Services that exposes APIs to access real estate data")
