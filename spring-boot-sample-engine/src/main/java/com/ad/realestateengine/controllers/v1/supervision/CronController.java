@@ -1,7 +1,6 @@
 package com.ad.realestateengine.controllers.v1.supervision;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +14,6 @@ import io.swagger.annotations.ApiResponses;
 
 
 @RestController
-@CrossOrigin
 @Api(value = "Goup APIs for the Cron Jobs", tags = "Crons")
 public class CronController extends V1Controller{
 	

@@ -34,9 +34,9 @@
 		<java.version>1.8</java.version>
 		<swagger.io.version>1.5.22</swagger.io.version>
 		<code.coverage.exclusions>
-			**/com/wkrzywiec/medium/noticeboard/controller/dto/**,
-			**/com/wkrzywiec/medium/noticeboard/entity/**,
-			**/com/wkrzywiec/medium/noticeboard/Application.java
+			**/com/ad/realestateengine/RealEstateEngineApplication.java,
+			**/com/ad/realestateengine/config/**/*,
+			**/com/ad/realestateengine/schedulers/**/*,
 		</code.coverage.exclusions>
 		<sonar.projectKey>bibou6_spring-boot-sample</sonar.projectKey>
 		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
