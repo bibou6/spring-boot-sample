@@ -36,7 +36,7 @@
 		<code.coverage.exclusions>
 			**/com/ad/realestateengine/RealEstateEngineApplication.java,
 			**/com/ad/realestateengine/config/**/*,
-			**/com/ad/realestateengine/schedulers/**/*,
+			**/com/ad/realestateengine/schedulers/**/*
 		</code.coverage.exclusions>
 		<sonar.projectKey>bibou6_spring-boot-sample</sonar.projectKey>
 		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
