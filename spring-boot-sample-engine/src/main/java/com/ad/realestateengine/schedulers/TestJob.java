@@ -3,25 +3,20 @@ package com.ad.realestateengine.schedulers;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ad.realestateengine.services.impl.UserServiceImpl;
-
+import com.ad.realestateengine.services.CronService;
 
 @Component
-public class TestJob implements Job	{
-	
-	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-	
+public class TestJob implements Job {
+
+	@Autowired
+	private CronService cronService;
+
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-
-		logger.info("Executing Job");
-		
+		this.cronService.testJob();
 	}
-	
-	
 
 }
