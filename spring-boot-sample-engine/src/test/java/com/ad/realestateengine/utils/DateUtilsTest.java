@@ -40,13 +40,5 @@ public class DateUtilsTest {
 		assertEquals(now.atStartOfDay().atZone(ZoneId.of("Europe/Paris")).toInstant(), date.toInstant());
 	}
 	
-	
-	@Test
-	public void convertLocaleDateTimeToDateWithTimeZoneTest() {
-		logger.info("[TEST] - convertLocaleDateTimeToDateWithTimeZoneTest");
-		LocalDateTime now = LocalDateTime.now();
-		Date date = DateUtils.withTimezone(now);
-		assertEquals(now.atZone(ZoneId.of("Europe/Paris")).toInstant(), date.toInstant());
-	}
 
 }
