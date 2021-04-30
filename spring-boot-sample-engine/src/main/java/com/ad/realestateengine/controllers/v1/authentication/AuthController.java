@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -100,13 +99,13 @@ public class AuthController extends V1Controller{
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
-					.body(new ErrorResponse(HttpStatus.CONFLICT.value(),ErrorCode.USER_EXIST_BY_USERNAME.getCode(),ErrorCode.USER_EXIST_BY_USERNAME.getMessage()));
+					.body(new ErrorResponse(ErrorCode.USER_EXIST_BY_USERNAME));
 		}
 
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
 			return ResponseEntity
 					.badRequest()
-					.body(new ErrorResponse(HttpStatus.CONFLICT.value(),ErrorCode.USER_EXIST_BY_EMAIL.getCode(),ErrorCode.USER_EXIST_BY_EMAIL.getMessage()));
+					.body(new ErrorResponse(ErrorCode.USER_EXIST_BY_EMAIL));
 		}
 
 		// Create new user's account
@@ -119,6 +118,7 @@ public class AuthController extends V1Controller{
 
 		roles.add(SecurityRoles.ACCESS_MY_CITY);
 		roles.add(SecurityRoles.ACCESS_MY_CONTACT);
+		roles.add(SecurityRoles.ACCESS_MY_USER);
 		
 		user.setRoles(roles);
 		userRepository.save(user);

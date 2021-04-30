@@ -11,5 +11,7 @@ public enum SecurityRoles {
 	
 	ACCESS_MY_CONTACT, // R/W Connected User Contacts
 	ACCESS_ALL_CONTACT, // R/W All Contacts
+	
+	ACCESS_SUPERVISION,
 
 }

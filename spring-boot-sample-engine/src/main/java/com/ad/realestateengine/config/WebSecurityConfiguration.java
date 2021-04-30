@@ -84,12 +84,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/test/**").permitAll()
 			
 			//CITY
-			.antMatchers("/v1/admin/city").hasRole(SecurityRoles.ACCESS_ALL_CITY.name())
-			.antMatchers("/v1/city/*").hasAnyRole(SecurityRoles.ACCESS_MY_CITY.name(),SecurityRoles.ACCESS_ALL_CITY.name())
+			.antMatchers("/v1/admin/city").hasAuthority(SecurityRoles.ACCESS_ALL_CITY.name())
+			.antMatchers("/v1/city/*").hasAnyAuthority(SecurityRoles.ACCESS_MY_CITY.name(),SecurityRoles.ACCESS_ALL_CITY.name())
 			
 			//USER
-			.antMatchers("/v1/admin/user/*").hasRole(SecurityRoles.ACCESS_ALL_USER.name())
-			.antMatchers("/v1/user/*").hasRole(SecurityRoles.ACCESS_ALL_USER.name())
+			.antMatchers("/v1/admin/user/*").hasAuthority(SecurityRoles.ACCESS_ALL_USER.name())
+			.antMatchers("/v1/user/*").hasAnyAuthority(SecurityRoles.ACCESS_MY_USER.name(), SecurityRoles.ACCESS_ALL_USER.name())
+			
+			//Supervision
+			.antMatchers("/v1/supervision/*").hasAuthority(SecurityRoles.ACCESS_SUPERVISION.name())
 			.anyRequest().authenticated()
 			.and()
 			.exceptionHandling().accessDeniedHandler(accessDeniedHandler()).authenticationEntryPoint(authenticationEntryPoint());

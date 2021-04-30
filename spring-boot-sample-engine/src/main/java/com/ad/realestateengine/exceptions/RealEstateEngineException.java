@@ -2,6 +2,7 @@ package com.ad.realestateengine.exceptions;
 
 import com.ad.realestatemodel.common.ErrorCode;
 
+
 public class RealEstateEngineException extends RuntimeException{
 
 	
@@ -15,7 +16,10 @@ public class RealEstateEngineException extends RuntimeException{
 
 	public RealEstateEngineException(ErrorCode code) {
 		this.code = code;
-		
 	}
 	
+	
+	public ErrorCode getCode() {
+		return this.code;
+	}
 }
