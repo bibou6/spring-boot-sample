@@ -78,7 +78,7 @@ public class SecurityControllerTest {
 
 		ResponseEntity<?> response = authController.registerUser(UserMock.createSignupRequest());
 
-		assertEquals(response, ResponseEntity.badRequest().body(new ErrorResponse(HttpStatus.CONFLICT.value(),
+		assertEquals(response, ResponseEntity.badRequest().body(new ErrorResponse(
 				ErrorCode.USER_EXIST_BY_USERNAME)));
 
 	}
@@ -90,7 +90,7 @@ public class SecurityControllerTest {
 
 		ResponseEntity<?> response = authController.registerUser(UserMock.createSignupRequest());
 
-		assertEquals(response, ResponseEntity.badRequest().body(new ErrorResponse(HttpStatus.CONFLICT.value(),
+		assertEquals(response, ResponseEntity.badRequest().body(new ErrorResponse(
 				ErrorCode.USER_EXIST_BY_EMAIL)));
 
 	}

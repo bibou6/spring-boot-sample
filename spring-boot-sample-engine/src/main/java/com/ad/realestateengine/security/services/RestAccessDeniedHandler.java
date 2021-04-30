@@ -21,7 +21,7 @@ public class RestAccessDeniedHandler implements AccessDeniedHandler {
 
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
-    	ErrorResponse response = new ErrorResponse(403, ErrorCode.USER_ACCESS_DENIED);
+    	ErrorResponse response = new ErrorResponse(ErrorCode.USER_ACCESS_DENIED);
         //response.setMessage(e.getMessage());
     	
     	httpServletResponse.setContentType("application/json");
